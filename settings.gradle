@@ -1,1 +1,1 @@
-include ':weather', ':weather-viewstate'
+include ':weather', ':weather-viewstate', ':weather-mosby'

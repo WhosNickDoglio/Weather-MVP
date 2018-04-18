@@ -13,19 +13,21 @@ ext {
 
     //Libraries
     retrofit = '2.4.0'
-    anko = '0.10.4'
-    ktx = '0.2'
     moshi = '1.5.0'
     dagger = '2.15'
     rxJava = '2.1.12'
     rxKotlin = '2.2.0'
     rxAndroid = '2.0.2'
     support = '27.1.0'
-    constraint = '1.0.2'
-    glide = '4.6.1'
+    constraint = '1.1.0'
+    places = '12.0.1'
+    epoxy = '2.11.0'
+    mosby = '3.1.0'
+    room = '1.0.0'
 
-    //Debuggin
+    //Debugging
     timber = '4.7.0'
+    leakcanary = '1.5.4'
 
     //Testing
     junit = '4.12'
@@ -37,28 +39,34 @@ ext {
 
     dependencies = [
             kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlin_version}",
-            anko                : "org.jetbrains.anko:anko-commons:${anko}",
-            ktx                 : "androidx.core:core-ktx:${ktx}",
             rxjava              : "io.reactivex.rxjava2:rxjava:${rxJava}",
             rxkotlin            : "io.reactivex.rxjava2:rxkotlin:${rxKotlin}",
+            rxandroid           : "io.reactivex.rxjava2:rxandroid:${rxAndroid}",
             retrofit            : "com.squareup.retrofit2:retrofit:${retrofit}",
-            retrofitRxAdapter   : "com.squareup.retrofit2:adapter-rxjava2:${retrofit}",
-            retrofitMoshi       : "com.squareup.retrofit2:converter-moshi:${retrofit}",
+            rxAdapter           : "com.squareup.retrofit2:adapter-rxjava2:${retrofit}",
+            moshiConverter      : "com.squareup.retrofit2:converter-moshi:${retrofit}",
             appcompat           : "com.android.support:appcompat-v7:${support}",
             recyclerview        : "com.android.support:recyclerview-v7:${support}",
             cardview            : "com.android.support:cardview-v7:${support}",
             design              : "com.android.support:design:${support}",
             support             : "com.android.support:support-v4:${support}",
             constraint          : "com.android.support.constraint:constraint-layout:${constraint}",
-            rxAndroid           : "io.reactivex.rxjava2:rxandroid:${rxAndroid}",
             dagger              : "com.google.dagger:dagger:${dagger}",
             daggerAndroid       : "com.google.dagger:dagger-android:${dagger}",
             daggerAndroidSupport: "com.google.dagger:dagger-android-support:${dagger}",
             daggerKapt          : "com.google.dagger:dagger-compiler:${dagger}",
             daggerAndroidKapt   : "com.google.dagger:dagger-android-processor:${dagger}",
-            glide               : "com.github.bumptech.glide:glide:${glide}",
-            glideKapt           : "com.github.bumptech.glide:compiler:${glide}",
-            timber              : "com.jakewharton.timber:timber:${timber}"
+            timber              : "com.jakewharton.timber:timber:${timber}",
+            places              : "com.google.android.gms:play-services-places:${places}",
+            leakCanaryDebug     : "com.squareup.leakcanary:leakcanary-android:${leakcanary}",
+            leakCanaryRelease   : "com.squareup.leakcanary:leakcanary-android-no-op:${leakcanary}",
+            epoxy               : "com.airbnb.android:epoxy:${epoxy}",
+            epoxyKapt           : "com.airbnb.android:epoxy-processor:${epoxy}",
+            mosbyViewState      : "com.hannesdorfmann.mosby3:viewstate:${mosby}",
+            mosbyLce            : "com.hannesdorfmann.mosby3:mvp-lce:${mosby}",
+            room                : "android.arch.persistence.room:runtime:${room}",
+            roomKapt            : "android.arch.persistence.room:compiler:${room}",
+            rxRoom              : "android.arch.persistence.room:rxjava2:${room}"
     ]
 
     testDependencies = [

@@ -16,22 +16,18 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        def apiKeysFile = rootProject.file("weather.properties")
+        def apiKeysFile = rootProject.file("api.properties")
         def apiKeys = new Properties()
         if (apiKeysFile.exists()) apiKeys.load(new FileInputStream(apiKeysFile))
+
+        all {
+            manifestPlaceholders = [PLAY_KEY: apiKeys.getProperty('places_key', 'null')]
+            buildConfigField 'String', 'WEATHER_API_KEY', apiKeys.getProperty('weather_key', 'null')
+        }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField 'String', 'API_KEY', apiKeys.getProperty('key', 'null')
-        }
-
-        debug {
-            buildConfigField 'String', 'API_KEY', apiKeys.getProperty('key')
-        }
-
-        mock {
-            initWith debug
         }
     }
     compileOptions {
@@ -47,14 +43,12 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     implementation dependencies.kotlin
-    implementation dependencies.anko
-    implementation dependencies.ktx
     implementation dependencies.retrofit
-    implementation dependencies.retrofitMoshi
-    implementation dependencies.retrofitRxAdapter
+    implementation dependencies.moshiConverter
+    implementation dependencies.rxAdapter
     implementation dependencies.rxkotlin
     implementation dependencies.rxjava
-    implementation dependencies.rxAndroid
+    implementation dependencies.rxandroid
     implementation dependencies.appcompat
     implementation dependencies.support
     implementation dependencies.cardview
@@ -64,10 +58,16 @@ dependencies {
     implementation dependencies.dagger
     implementation dependencies.daggerAndroid
     implementation dependencies.daggerAndroidSupport
-    implementation dependencies.glide
     implementation dependencies.timber
+    implementation dependencies.places
+    implementation dependencies.epoxy
+    implementation dependencies.room
+    implementation dependencies.rxRoom
+    debugImplementation dependencies.leakCanaryDebug
+    releaseImplementation dependencies.leakCanaryRelease
 
-    kapt dependencies.glideKapt
+    kapt dependencies.epoxyKapt
+    kapt dependencies.roomKapt
     kapt dependencies.daggerKapt
     kapt dependencies.daggerAndroidKapt
 
@@ -82,5 +82,16 @@ dependencies {
     androidTestImplementation testDependencies.espressoIntents
     androidTestImplementation testDependencies.espressoCore, {
         exclude group: 'com.android.support', module: 'support-annotations'
+    }
+}
+
+// Ensure the no-op dependency is always used in JVM tests.
+configurations.all { config ->
+    if (config.name.contains('UnitTest')) {
+        config.resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'com.squareup.leakcanary' && details.requested.name == 'leakcanary-android') {
+                details.useTarget(group: details.requested.group, name: 'leakcanary-android-no-op', version: details.requested.version)
+            }
+        }
     }
 }
