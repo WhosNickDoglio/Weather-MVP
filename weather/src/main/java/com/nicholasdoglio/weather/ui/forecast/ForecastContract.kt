@@ -1,12 +1,14 @@
-package com.nicholasdoglio.weather.ui.search
+package com.nicholasdoglio.weather.ui.forecast
 
 import com.nicholasdoglio.weather.ui.base.BasePresenter
 import com.nicholasdoglio.weather.ui.base.BaseView
 
-interface SearchContract {
-    interface Presenter : BasePresenter<View> {
+/**
+ * @author Nicholas Doglio
+ */
+interface ForecastContract {
 
-        fun submitSearch(query: String)
+    interface Presenter : BasePresenter<View> {
 
     }
 

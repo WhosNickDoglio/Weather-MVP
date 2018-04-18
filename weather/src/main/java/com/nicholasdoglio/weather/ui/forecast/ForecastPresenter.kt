@@ -1,16 +1,19 @@
-package com.nicholasdoglio.weather.ui.detail
+package com.nicholasdoglio.weather.ui.forecast
 
 import com.nicholasdoglio.weather.data.repo.WeatherRepository
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-class DetailPresenter @Inject constructor(private val weatherRepository: WeatherRepository) :
-    DetailContract.Presenter {
-    private var view: DetailContract.View? = null
+/**
+ * @author Nicholas Doglio
+ */
+class ForecastPresenter @Inject constructor(private val weatherRepository: WeatherRepository) :
+    ForecastContract.Presenter {
+    private var view: ForecastContract.View? = null
     private val compositeDisposable = CompositeDisposable()
 
 
-    override fun attach(view: DetailContract.View) {
+    override fun attach(view: ForecastContract.View) {
         this.view = view
     }
 
