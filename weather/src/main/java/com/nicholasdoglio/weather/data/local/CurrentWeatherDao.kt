@@ -25,8 +25,11 @@ interface CurrentWeatherDao {
     fun getLocation(id: Int): Single<CurrentWeather>
 
     @Query("SELECT * FROM CurrentWeather")
-    fun getWeatherList(): Flowable<CurrentWeather>
+    fun getWeatherList(): Flowable<List<CurrentWeather>>
 
     @Query("SELECT count(*) FROM CurrentWeather")
     fun getNumberOfCities(): Single<Int>
+
+    @Query("SELECT id FROM CurrentWeather")
+    fun getAllIds(): Single<List<Int>>
 }

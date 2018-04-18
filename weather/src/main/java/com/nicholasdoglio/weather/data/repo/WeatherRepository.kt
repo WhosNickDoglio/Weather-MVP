@@ -79,7 +79,7 @@ class WeatherRepository @Inject constructor(
 
     //TODO this doesn't work as intended
     override fun getWeatherList(): Flowable<List<CurrentWeather>> =
-        Flowable.just(savedLocationList)
+        weatherDatabase.currentWeatherDao().getWeatherList()
 
     override fun getForecast(id: String): Single<Forecast> =
         weatherService.getForecast(id, Constants.WEATHER_API_KEY, Constants.IMPERIAL_UNITS)
