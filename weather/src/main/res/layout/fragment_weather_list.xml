@@ -44,24 +44,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No Weather" />
+            android:text="@string/no_weather_text" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add your location down below" />
+            android:text="@string/no_weather_subtext" />
 
     </LinearLayout>
-
-    <android.support.v4.widget.ContentLoadingProgressBar
-        android:id="@+id/listProgressBar"
-        style="@style/Base.Widget.AppCompat.ProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/listToolbar" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/seachFab"
@@ -73,6 +63,5 @@
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </android.support.constraint.ConstraintLayout>

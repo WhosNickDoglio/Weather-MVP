@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Weather-MVP</string>
+    <string name="no_weather_text">No Weather</string>
+    <string name="no_weather_subtext">Add your location down below</string>
 
 
 </resources>
