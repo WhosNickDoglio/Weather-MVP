@@ -9,6 +9,9 @@ import dagger.android.support.DaggerAppCompatActivity
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
+/**
+ * @author Nicholas Doglio
+ */
 class MainActivity : DaggerAppCompatActivity(), HasSupportFragmentInjector {
 
     @Inject
@@ -25,7 +28,7 @@ class MainActivity : DaggerAppCompatActivity(), HasSupportFragmentInjector {
         setContentView(R.layout.activity_main)
 
         if (savedInstanceState == null) {
-            navigationController.openList()
+            navigationController.openWeatherListFragment()
         }
     }
 }
