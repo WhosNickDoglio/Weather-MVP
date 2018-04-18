@@ -1,0 +1,143 @@
+{
+  "cnt": 3,
+  "list": [
+    {
+      "coord": {
+        "lon": -73.51,
+        "lat": 40.73
+      },
+      "sys": {
+        "type": 1,
+        "id": 2100,
+        "message": 0.1667,
+        "country": "US",
+        "sunrise": 1522837939,
+        "sunset": 1522884131
+      },
+      "weather": [
+        {
+          "id": 741,
+          "main": "Fog",
+          "description": "fog",
+          "icon": "50n"
+        },
+        {
+          "id": 701,
+          "main": "Mist",
+          "description": "mist",
+          "icon": "50n"
+        }
+      ],
+      "main": {
+        "temp": 40.41,
+        "pressure": 1010,
+        "humidity": 100,
+        "temp_min": 37.4,
+        "temp_max": 42.8
+      },
+      "visibility": 805,
+      "wind": {
+        "speed": 4.7,
+        "deg": 20
+      },
+      "clouds": {
+        "all": 90
+      },
+      "dt": 1522818974,
+      "id": 420026983,
+      "name": "Huntington"
+    },
+    {
+      "coord": {
+        "lon": -71.13,
+        "lat": 42.42
+      },
+      "sys": {
+        "type": 1,
+        "id": 1290,
+        "message": 0.1711,
+        "country": "US",
+        "sunrise": 1522837287,
+        "sunset": 1522883643
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10n"
+        },
+        {
+          "id": 701,
+          "main": "Mist",
+          "description": "mist",
+          "icon": "50n"
+        }
+      ],
+      "main": {
+        "temp": 39.2,
+        "pressure": 1011,
+        "humidity": 93,
+        "temp_min": 37.4,
+        "temp_max": 41
+      },
+      "visibility": 4023,
+      "wind": {
+        "speed": 3.36,
+        "deg": 70
+      },
+      "clouds": {
+        "all": 90
+      },
+      "dt": 1522818974,
+      "id": 420016909,
+      "name": "Boston"
+    },
+    {
+      "coord": {
+        "lon": -73.73,
+        "lat": 40.72
+      },
+      "sys": {
+        "type": 1,
+        "id": 1969,
+        "message": 0.1714,
+        "country": "US",
+        "sunrise": 1522837992,
+        "sunset": 1522884183
+      },
+      "weather": [
+        {
+          "id": 701,
+          "main": "Mist",
+          "description": "mist",
+          "icon": "50n"
+        },
+        {
+          "id": 741,
+          "main": "Fog",
+          "description": "fog",
+          "icon": "50n"
+        }
+      ],
+      "main": {
+        "temp": 40.24,
+        "pressure": 1011,
+        "humidity": 93,
+        "temp_min": 37.4,
+        "temp_max": 42.8
+      },
+      "visibility": 1207,
+      "wind": {
+        "speed": 3.4,
+        "deg": 162.509
+      },
+      "clouds": {
+        "all": 90
+      },
+      "dt": 1522818974,
+      "id": 420030549,
+      "name": "New York"
+    }
+  ]
+}
