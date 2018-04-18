@@ -1,12 +1,25 @@
 package com.nicholasdoglio.weather.data.repo
 
+import com.nicholasdoglio.weather.data.entities.CurrentWeather
+import com.nicholasdoglio.weather.data.entities.Forecast
+import io.reactivex.Completable
+import io.reactivex.Flowable
+import io.reactivex.Single
+
+/**
+ * @author Nicholas Doglio
+ */
 interface Repository {
 
-    fun getWeatherByZip(zip: String)
+    fun addLocation(currentWeather: CurrentWeather): Boolean
 
-    fun getWeatherByCityName(name: String)
+    fun removeLocation(id: Int)
 
-    fun updateWeatherList()
+    fun getWeather(lat: Double, long: Double): Single<CurrentWeather>
 
-    fun getForecast(id: String)
+    fun updateWeatherList(): Completable
+
+    fun getWeatherList(): Flowable<List<CurrentWeather>>
+
+    fun getForecast(id: String): Single<Forecast>
 }
