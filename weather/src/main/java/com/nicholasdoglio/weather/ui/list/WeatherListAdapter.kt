@@ -7,43 +7,45 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nicholasdoglio.weather.R
-import com.nicholasdoglio.weather.data.model.WeatherResponse
-import kotlinx.android.synthetic.main.item_list.view.*
+import com.nicholasdoglio.weather.data.entities.CurrentWeather
+import com.nicholasdoglio.weather.ui.common.NavigationController
+import kotlinx.android.synthetic.main.item_weather_list.view.*
 
-class WeatherListAdapter :
-    ListAdapter<WeatherResponse, WeatherListAdapter.WeatherListViewHolder>(diff) {
+/**
+ * @author Nicholas Doglio
+ */
+class WeatherListAdapter(private val navigationController: NavigationController) :
+    ListAdapter<CurrentWeather, WeatherListAdapter.WeatherListViewHolder>(diff) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherListViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return WeatherListViewHolder(inflater.inflate(R.layout.item_list, parent, false))
+        return WeatherListViewHolder(inflater.inflate(R.layout.item_weather_list, parent, false))
     }
 
     override fun onBindViewHolder(holder: WeatherListViewHolder, position: Int) {
         holder.bind(getItem(position))
+//        holder.itemView.setOnClickListener { navigationController.openForecastFragment(getItem(position).id) }
     }
 
     inner class WeatherListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(weatherResponse: WeatherResponse) {
-            itemView.locationName.text = weatherResponse.name
-            itemView.weatherDescription.text = weatherResponse.weather[0].description
-            itemView.highTemp.text = weatherResponse.currentMain.tempMax.toString()
-            itemView.lowTemp.text = weatherResponse.currentMain.tempMin.toString()
-            itemView.weatherPhoto.setImageResource(R.mipmap.ic_launcher)
-            //TODO set up image
+        fun bind(currentWeather: CurrentWeather) {
+            itemView.locationName.text = currentWeather.locationName
+            itemView.currentTemp.text = Math.round(currentWeather.currentTemp).toString()
+//            itemView.weatherPhoto TODO fix this
         }
     }
 
     companion object {
-        private val diff = object : ItemCallback<WeatherResponse>() {
+        private val diff = object : ItemCallback<CurrentWeather>() {
             override fun areItemsTheSame(
-                oldItem: WeatherResponse,
-                newItem: WeatherResponse
+                oldItem: CurrentWeather,
+                newItem: CurrentWeather
             ): Boolean = oldItem.id == newItem.id
 
             override fun areContentsTheSame(
-                oldItem: WeatherResponse,
-                newItem: WeatherResponse
+                oldItem: CurrentWeather,
+                newItem: CurrentWeather
             ): Boolean = oldItem == newItem
         }
     }
