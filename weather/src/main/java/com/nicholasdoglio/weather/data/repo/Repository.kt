@@ -11,11 +11,11 @@ import io.reactivex.Single
  */
 interface Repository {
 
-    fun addLocation(currentWeather: CurrentWeather): Boolean
+    fun addLocation(lat: Double, long: Double): Completable
 
-    fun removeLocation(id: Int)
+    fun removeLocation(currentWeather: CurrentWeather): Completable
 
-    fun getWeather(lat: Double, long: Double): Single<CurrentWeather>
+    fun getWeather(id: Int): Single<CurrentWeather>
 
     fun updateWeatherList(): Completable
 

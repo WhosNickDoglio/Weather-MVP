@@ -2,9 +2,11 @@ package com.nicholasdoglio.weather.di
 
 import android.app.Application
 import android.arch.persistence.room.Room
+import com.nicholasdoglio.weather.data.local.LocalDataSource
 import com.nicholasdoglio.weather.data.local.WeatherDatabase
 import com.nicholasdoglio.weather.data.mapper.CurrentWeatherMapper
 import com.nicholasdoglio.weather.data.mapper.ForecastMapper
+import com.nicholasdoglio.weather.data.remote.RemoteDataSource
 import com.nicholasdoglio.weather.data.remote.WeatherService
 import com.nicholasdoglio.weather.data.repo.WeatherRepository
 import com.nicholasdoglio.weather.util.Constants
@@ -35,6 +37,10 @@ class AppModule {
     fun weatherDatabase(app: Application): WeatherDatabase =
         Room.databaseBuilder(app, WeatherDatabase::class.java, "weather.db").build();
 
+    @Singleton
+    @Provides
+    fun localDataSource(weatherDatabase: WeatherDatabase) = LocalDataSource(weatherDatabase)
+
     @Provides
     fun currentWeatherMapper() = CurrentWeatherMapper()
 
@@ -43,10 +49,14 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun repository(
+    fun remoteDataSource(
         weatherService: WeatherService,
         currentWeatherMapper: CurrentWeatherMapper,
-        forecastMapper: ForecastMapper,
-        weatherDatabase: WeatherDatabase
-    ) = WeatherRepository(weatherService, currentWeatherMapper, forecastMapper, weatherDatabase)
+        forecastMapper: ForecastMapper
+    ) = RemoteDataSource(weatherService, currentWeatherMapper, forecastMapper)
+
+    @Singleton
+    @Provides
+    fun repository(localDataSource: LocalDataSource, remoteDataSource: RemoteDataSource) =
+        WeatherRepository(remoteDataSource, localDataSource)
 }

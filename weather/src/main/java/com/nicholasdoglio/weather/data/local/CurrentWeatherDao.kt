@@ -1,35 +1,39 @@
 package com.nicholasdoglio.weather.data.local
 
-import android.arch.persistence.room.Delete
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
 import com.nicholasdoglio.weather.data.entities.CurrentWeather
 import io.reactivex.Flowable
 import io.reactivex.Single
 
-interface CurrentWeatherDao {
+@Dao
+abstract class CurrentWeatherDao {
 
     @Insert
-    fun addLocation(currentWeather: CurrentWeather)
+    abstract fun addLocation(currentWeather: CurrentWeather)
 
     @Insert
-    fun addListOfLocations(weatherList: List<CurrentWeather>)
+    abstract fun addListOfLocations(weatherList: List<CurrentWeather>)
 
     @Delete
-    fun removeLocation(currentWeather: CurrentWeather)
+    abstract fun removeLocation(currentWeather: CurrentWeather)
 
     @Query("DELETE FROM CurrentWeather")
-    fun clearTable()
+    abstract fun clearTable()
 
     @Query("SELECT * FROM CurrentWeather WHERE id = :id")
-    fun getLocation(id: Int): Single<CurrentWeather>
+    abstract fun getLocation(id: Int): Single<CurrentWeather>
 
     @Query("SELECT * FROM CurrentWeather")
-    fun getWeatherList(): Flowable<List<CurrentWeather>>
+    abstract fun getWeatherList(): Flowable<List<CurrentWeather>>
 
     @Query("SELECT count(*) FROM CurrentWeather")
-    fun getNumberOfCities(): Single<Int>
+    abstract fun getNumberOfCities(): Single<Int>
 
     @Query("SELECT id FROM CurrentWeather")
-    fun getAllIds(): Single<List<Int>>
+    abstract fun getAllIds(): Single<List<Int>>
+
+    @Transaction
+    open fun updateWeatherList() {
+
+    }
 }
