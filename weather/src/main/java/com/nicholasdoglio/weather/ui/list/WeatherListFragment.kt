@@ -28,8 +28,8 @@ class WeatherListFragment : DaggerFragment(), WeatherListContract.View {
 
     private var lat: Double? = null
     private var long: Double? = null
-    //TODO Spanish cities are broken
 
+    //TODO Spanish cities are broken
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         weatherListAdapter = WeatherListAdapter(navigationController)
@@ -54,10 +54,6 @@ class WeatherListFragment : DaggerFragment(), WeatherListContract.View {
             adapter = weatherListAdapter
             layoutManager = LinearLayoutManager(context)
         }
-
-        weatherListSwipeToRefresh.setOnRefreshListener { weatherListPresenter.refreshWeatherListLocations() }
-
-        seachFab.setOnClickListener { navigationController.openSearchFragment() }
     }
 
     override fun onCreateView(
@@ -80,11 +76,12 @@ class WeatherListFragment : DaggerFragment(), WeatherListContract.View {
         else -> super.onOptionsItemSelected(item)
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
         weatherListPresenter.attach(this)
-
         weatherListPresenter.getWeatherInformation()
+        weatherListSwipeToRefresh.setOnRefreshListener { weatherListPresenter.refreshWeatherListLocations() }
+        seachFab.setOnClickListener { navigationController.openSearchFragment() }
     }
 
     override fun onStop() {
@@ -117,7 +114,6 @@ class WeatherListFragment : DaggerFragment(), WeatherListContract.View {
 
     override fun locationAdded() {
         Toast.makeText(context, "Location added", Toast.LENGTH_SHORT).show()
-        weatherListAdapter.notifyItemChanged(weatherListAdapter.itemCount)
     }
 
     override fun listTooLong() {
@@ -126,7 +122,6 @@ class WeatherListFragment : DaggerFragment(), WeatherListContract.View {
 
     override fun listUpdated() {
         Toast.makeText(context, "List updated", Toast.LENGTH_SHORT).show()
-        weatherListAdapter.notifyDataSetChanged()
     }
 
     companion object {

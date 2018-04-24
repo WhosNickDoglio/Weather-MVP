@@ -22,8 +22,6 @@ class ForecastPresenter @Inject constructor(private val weatherRepository: Weath
     }
 
     override fun clearDisposables() {
-        if (!compositeDisposable.isDisposed) {
-            compositeDisposable.clear()
-        }
+        compositeDisposable.clear()
     }
 }

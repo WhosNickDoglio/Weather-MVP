@@ -17,20 +17,32 @@ class WeatherListPresenter @Inject constructor(private val weatherRepository: We
     private var weatherListView: WeatherListContract.View? = null
     private val compositeDisposable = CompositeDisposable()
 
+    override fun attach(view: WeatherListContract.View) {
+        this.weatherListView = view
+    }
+
+    override fun detach() {
+        weatherListView = null
+    }
+
+    override fun clearDisposables() {
+        compositeDisposable.clear()
+    }
+
     override fun addLocationToList(lat: Double, long: Double) {
         weatherListView?.showLoadingBar()
-        compositeDisposable += weatherRepository.getWeather(lat, long)
+        compositeDisposable += weatherRepository.addLocation(lat, long)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ handleAddLocationSuccess(it) }, { handleError(it) })
+            .subscribe({ handleLocationAdded() }, { handleError(it) })
     }
 
     override fun refreshWeatherListLocations() {
         weatherListView?.showLoadingBar()
         compositeDisposable += weatherRepository.updateWeatherList()
             .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ handleRefreshListSuccess() }, { handleError(it) })
+
     }
 
     override fun getWeatherInformation() {
@@ -41,19 +53,11 @@ class WeatherListPresenter @Inject constructor(private val weatherRepository: We
             .subscribe({ handleGetWeatherInformationSuccess(it) }, { handleError(it) })
     }
 
-    override fun attach(view: WeatherListContract.View) {
-        this.weatherListView = view
+    private fun handleLocationAdded() {
+        weatherListView?.hideLoadingBar()
+        weatherListView?.listUpdated()
     }
 
-    override fun detach() {
-        weatherListView = null
-    }
-
-    override fun clearDisposables() {
-        if (!compositeDisposable.isDisposed) {
-            compositeDisposable.clear()
-        }
-    }
 
     private fun handleRefreshListSuccess() {
         weatherListView?.hideLoadingBar()
@@ -62,12 +66,10 @@ class WeatherListPresenter @Inject constructor(private val weatherRepository: We
 
     private fun handleAddLocationSuccess(currentWeather: CurrentWeather) {
         weatherListView?.hideLoadingBar()
-        when (weatherRepository.addLocation(currentWeather)) {
-            true -> weatherListView?.locationAdded()
-            false -> weatherListView?.listTooLong()
-        }
+
     }
 
+    //TODO I need to connect this to Room
     private fun handleGetWeatherInformationSuccess(currentWeather: List<CurrentWeather>) {
         weatherListView?.hideLoadingBar()
         when (currentWeather.isEmpty()) {
