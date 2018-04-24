@@ -38,7 +38,7 @@ ext {
     espressoTest = '1.0.1'
 
     dependencies = [
-            kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlin_version}",
+            kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}",
             rxjava              : "io.reactivex.rxjava2:rxjava:${rxJava}",
             rxkotlin            : "io.reactivex.rxjava2:rxkotlin:${rxKotlin}",
             rxandroid           : "io.reactivex.rxjava2:rxandroid:${rxAndroid}",
