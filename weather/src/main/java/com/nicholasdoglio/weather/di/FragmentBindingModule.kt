@@ -23,8 +23,8 @@ abstract class FragmentBindingModule {
     abstract fun listPresenter(weatherListPresenter: WeatherListPresenter): WeatherListContract.Presenter
 
     @ContributesAndroidInjector
-    abstract fun contributesDetailFragment(): ForecastFragment
+    abstract fun contributesForecastFragment(): ForecastFragment
 
     @Binds
-    abstract fun detailPresenter(forecastPresenter: ForecastPresenter): ForecastContract.Presenter
+    abstract fun forecastPresenter(forecastPresenter: ForecastPresenter): ForecastContract.Presenter
 }
