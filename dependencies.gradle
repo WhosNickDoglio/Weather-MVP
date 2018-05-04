@@ -4,7 +4,7 @@ allprojects {
     }
 }
 
-//TOOD clean unused dependencies
+//TODO clean unused dependencies
 ext {
     //Android
     minsdk = 21
