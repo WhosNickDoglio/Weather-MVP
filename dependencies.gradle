@@ -15,12 +15,12 @@ ext {
     retrofit = '2.4.0'
     moshi = '1.5.0'
     dagger = '2.15'
-    rxJava = '2.1.12'
+    rxJava = '2.1.13'
     rxKotlin = '2.2.0'
     rxAndroid = '2.0.2'
-    support = '27.1.0'
+    support = '27.1.1'
     constraint = '1.1.0'
-    places = '12.0.1'
+    places = '15.0.0'
     epoxy = '2.11.0'
     mosby = '3.1.0'
     room = '1.0.0'
@@ -32,10 +32,9 @@ ext {
     //Testing
     junit = '4.12'
     junit = '5.1.0'
-    robolectric = '3.8'
-    mockitoKotlin = '1.5.0'
-    espresso = '3.0.1'
-    espressoTest = '1.0.1'
+    mockito = '1.5.0'
+    espresso = '3.0.2'
+    espressoTest = '1.0.2'
 
     dependencies = [
             kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}",
@@ -72,8 +71,7 @@ ext {
     testDependencies = [
             junit          : "org.junit.jupiter:junit-jupiter-api:${junit}",
             kotlinJunit    : "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
-            robolectric    : "org.robolectric:robolectric:${robolectric}",
-            mockito        : "com.nhaarman:mockito-kotlin:${mockitoKotlin}",
+            mockito        : "com.nhaarman:mockito-kotlin:${mockito}",
             rules          : "com.android.support.test:rules:${espressoTest}",
             runner         : "com.android.support.test:runner:${espressoTest}",
             espressoIntents: "com.android.support.test.espresso:espresso-intents:${espresso}",

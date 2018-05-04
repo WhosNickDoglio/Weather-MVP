@@ -78,7 +78,6 @@ dependencies {
 
     testImplementation testDependencies.junit
     testImplementation testDependencies.kotlinJunit
-    testImplementation testDependencies.robolectric
     testImplementation testDependencies.mockito
     testImplementation testDependencies.mockRetrofit
 
