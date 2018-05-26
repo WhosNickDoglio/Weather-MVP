@@ -1,4 +1,4 @@
-package com.nicholasdoglio.weather.data.model
+package com.nicholasdoglio.weather.data.response
 
 import com.squareup.moshi.Json
 
