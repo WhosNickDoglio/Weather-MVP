@@ -13,17 +13,18 @@ ext {
 
     //Libraries
     retrofit = '2.4.0'
-    moshi = '1.5.0'
-    dagger = '2.15'
-    rxJava = '2.1.13'
+    okhttp = '3.10.0'
+    moshi = '1.6.0'
+    dagger = '2.16'
+    rxJava = '2.1.14'
     rxKotlin = '2.2.0'
     rxAndroid = '2.0.2'
     support = '27.1.1'
     constraint = '1.1.0'
-    places = '15.0.0'
-    epoxy = '2.11.0'
+    places = '15.0.1'
+    epoxy = '2.12.0'
     mosby = '3.1.0'
-    room = '1.0.0'
+    room = '1.1.0'
 
     //Debugging
     timber = '4.7.0'
@@ -32,7 +33,7 @@ ext {
     //Testing
     junit = '4.12'
     junit = '5.1.0'
-    mockito = '1.5.0'
+    mockk = '1.8'
     espresso = '3.0.2'
     espressoTest = '1.0.2'
 
@@ -65,13 +66,15 @@ ext {
             mosbyLce            : "com.hannesdorfmann.mosby3:mvp-lce:${mosby}",
             room                : "android.arch.persistence.room:runtime:${room}",
             roomKapt            : "android.arch.persistence.room:compiler:${room}",
-            rxRoom              : "android.arch.persistence.room:rxjava2:${room}"
+            rxRoom              : "android.arch.persistence.room:rxjava2:${room}",
+            okhttp              : "com.squareup.okhttp3:okhttp:${okhttp}",
+            okhttpLogger        : "com.squareup.okhttp3:logging-interceptor:${okhttp}"
     ]
 
     testDependencies = [
             junit          : "org.junit.jupiter:junit-jupiter-api:${junit}",
             kotlinJunit    : "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
-            mockito        : "com.nhaarman:mockito-kotlin:${mockito}",
+            mockk          : "io.mockk:mockk:${mockk}",
             rules          : "com.android.support.test:rules:${espressoTest}",
             runner         : "com.android.support.test:runner:${espressoTest}",
             espressoIntents: "com.android.support.test.espresso:espresso-intents:${espresso}",

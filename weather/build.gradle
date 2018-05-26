@@ -68,6 +68,8 @@ dependencies {
     implementation dependencies.epoxy
     implementation dependencies.room
     implementation dependencies.rxRoom
+    implementation dependencies.okhttp
+    implementation dependencies.okhttpLogger
     debugImplementation dependencies.leakCanaryDebug
     releaseImplementation dependencies.leakCanaryRelease
 
@@ -78,7 +80,7 @@ dependencies {
 
     testImplementation testDependencies.junit
     testImplementation testDependencies.kotlinJunit
-    testImplementation testDependencies.mockito
+    testImplementation testDependencies.mockk
     testImplementation testDependencies.mockRetrofit
 
     androidTestImplementation testDependencies.rules
