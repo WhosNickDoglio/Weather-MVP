@@ -14,20 +14,24 @@ class RemoteDataSource @Inject constructor(
     private val forecastMapper: ForecastMapper
 ) {
 
+    private val weatherApiKey = BuildConfig.WEATHER_API_KEY
+    private val imperialUnits = "imperial"
+    private val metricUnits = "metric"
+
     fun getWeather(lat: Double, long: Double): Single<CurrentWeather> =
         weatherService.getWeather(
             lat,
             long,
-            Constants.WEATHER_API_KEY,
-            Constants.IMPERIAL_UNITS
+            weatherApiKey,
+            imperialUnits
         )
             .map(currentWeatherMapper::mapFromResponse)
 
     fun getUpdatesForList(listOfCityIds: String): Single<List<CurrentWeather>> {
         return weatherService.getSavedCitiesCurrentWeather(
             listOfCityIds,
-            Constants.WEATHER_API_KEY,
-            Constants.IMPERIAL_UNITS
+            weatherApiKey,
+            imperialUnits
         )
             .map { listOfCitiesResponse ->
                 val updatedList = mutableListOf<CurrentWeather>()
@@ -38,6 +42,6 @@ class RemoteDataSource @Inject constructor(
     }
 
     fun getForecast(id: String): Single<Forecast> =
-        weatherService.getForecast(id, Constants.WEATHER_API_KEY, Constants.IMPERIAL_UNITS)
+        weatherService.getForecast(id, weatherApiKey, imperialUnits)
             .map(forecastMapper::mapFromResponse)
 }
