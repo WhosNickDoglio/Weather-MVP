@@ -9,9 +9,10 @@ import com.nicholasdoglio.weather.data.mapper.ForecastMapper
 import com.nicholasdoglio.weather.data.remote.RemoteDataSource
 import com.nicholasdoglio.weather.data.remote.WeatherService
 import com.nicholasdoglio.weather.data.repo.WeatherRepository
-import com.nicholasdoglio.weather.util.Constants
 import dagger.Module
 import dagger.Provides
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -23,12 +24,28 @@ import javax.inject.Singleton
 @Module
 class AppModule {
 
+    private val baseUrl = "https://api.openweathermap.org/data/2.5/"
+
+    @Provides
+    fun interceptor(): HttpLoggingInterceptor {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        return interceptor
+    }
+
+    @Provides
+    @Singleton
+    fun OkhttpClient(interceptor: HttpLoggingInterceptor): OkHttpClient =
+        OkHttpClient.Builder().addInterceptor(interceptor).build()
+
+
     @Singleton
     @Provides
-    fun weatherService(): WeatherService = Retrofit.Builder()
-        .baseUrl(Constants.WEATHER_BASE_URL)
+    fun weatherService(okHttpClient: OkHttpClient): WeatherService = Retrofit.Builder()
+        .baseUrl(baseUrl)
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(MoshiConverterFactory.create())
+        .client(okHttpClient)
         .build()
         .create(WeatherService::class.java)
 
