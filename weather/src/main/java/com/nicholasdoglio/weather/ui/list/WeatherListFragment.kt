@@ -27,16 +27,18 @@ class WeatherListFragment : DaggerFragment(), WeatherListContract.View {
     private lateinit var weatherListAdapter: WeatherListAdapter
 
     private var lat: Double? = null
-    private var long: Double? = null
 
+    //TODO last updated header in RecyclerView
+
+    private var long: Double? = null
     //TODO Spanish cities are broken
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         weatherListAdapter = WeatherListAdapter(navigationController)
 
         arguments?.let {
-            lat = arguments?.getDouble("LAT")
-            long = arguments?.getDouble("LONG")
+            lat = arguments?.getDouble(LAT_KEY)
+            long = arguments?.getDouble(LONG_KEY)
             if (lat != 0.0 && long != 0.0) {
                 weatherListPresenter.addLocationToList(lat!!, long!!)
                 Timber.d(("Coordinates Lat: ${lat} Long: ${long}"))
@@ -79,7 +81,8 @@ class WeatherListFragment : DaggerFragment(), WeatherListContract.View {
     override fun onStart() {
         super.onStart()
         weatherListPresenter.attach(this)
-        weatherListPresenter.getWeatherInformation()
+        weatherListPresenter.observeNumberOfLocations()
+        weatherListPresenter.observeWeatherList()
         weatherListSwipeToRefresh.setOnRefreshListener { weatherListPresenter.refreshWeatherListLocations() }
         seachFab.setOnClickListener { navigationController.openSearchFragment() }
     }
@@ -98,6 +101,11 @@ class WeatherListFragment : DaggerFragment(), WeatherListContract.View {
     override fun showEmptyView() {
         noWeatherText.visibility = View.VISIBLE
         weatherList.visibility = View.INVISIBLE
+    }
+
+    override fun showList() {
+        noWeatherText.visibility = View.INVISIBLE
+        weatherList.visibility = View.VISIBLE
     }
 
     override fun submitList(weatherList: List<CurrentWeather>) {
@@ -125,11 +133,14 @@ class WeatherListFragment : DaggerFragment(), WeatherListContract.View {
     }
 
     companion object {
+        private val LAT_KEY = "LAT"
+        private val LONG_KEY = "LONG"
+
         fun create(latitude: Double, longitude: Double): WeatherListFragment {
             val weatherListFragment = WeatherListFragment()
             val arguments = Bundle()
-            arguments.putDouble("LAT", latitude)
-            arguments.putDouble("LONG", longitude)
+            arguments.putDouble(LAT_KEY, latitude)
+            arguments.putDouble(LONG_KEY, longitude)
             weatherListFragment.arguments = arguments
             return weatherListFragment
         }
