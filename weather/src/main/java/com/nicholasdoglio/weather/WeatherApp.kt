@@ -48,9 +48,7 @@ class WeatherApp : DaggerApplication() {
     }
 
     private fun initLeakCanary() {
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            return
-        }
+        if (LeakCanary.isInAnalyzerProcess(this)) return
 
         LeakCanary.install(this)
     }
