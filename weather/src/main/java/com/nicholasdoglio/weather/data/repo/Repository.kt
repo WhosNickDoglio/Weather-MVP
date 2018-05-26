@@ -1,7 +1,7 @@
 package com.nicholasdoglio.weather.data.repo
 
-import com.nicholasdoglio.weather.data.entities.CurrentWeather
-import com.nicholasdoglio.weather.data.entities.Forecast
+import com.nicholasdoglio.weather.data.model.CurrentWeather
+import com.nicholasdoglio.weather.data.model.Forecast
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
@@ -19,7 +19,9 @@ interface Repository {
 
     fun updateWeatherList(): Completable
 
-    fun getWeatherList(): Flowable<List<CurrentWeather>>
+    fun observeWeatherLocations(): Flowable<List<CurrentWeather>>
+
+    fun observeNumberOfLocations(): Flowable<Int>
 
     fun getForecast(id: String): Single<Forecast>
 }

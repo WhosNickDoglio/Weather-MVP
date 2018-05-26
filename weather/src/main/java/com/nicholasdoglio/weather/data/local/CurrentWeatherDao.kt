@@ -1,7 +1,7 @@
 package com.nicholasdoglio.weather.data.local
 
 import android.arch.persistence.room.*
-import com.nicholasdoglio.weather.data.entities.CurrentWeather
+import com.nicholasdoglio.weather.data.model.CurrentWeather
 import io.reactivex.Flowable
 import io.reactivex.Single
 
@@ -27,13 +27,14 @@ abstract class CurrentWeatherDao {
     abstract fun getWeatherList(): Flowable<List<CurrentWeather>>
 
     @Query("SELECT count(*) FROM CurrentWeather")
-    abstract fun getNumberOfCities(): Single<Int>
+    abstract fun getNumberOfCities(): Flowable<Int>
 
     @Query("SELECT id FROM CurrentWeather")
     abstract fun getAllIds(): Single<List<Int>>
 
     @Transaction
     open fun updateWeatherList() {
+        clearTable()
 
     }
 }

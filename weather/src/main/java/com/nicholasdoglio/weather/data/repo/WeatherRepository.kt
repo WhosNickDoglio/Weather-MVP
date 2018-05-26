@@ -1,7 +1,7 @@
 package com.nicholasdoglio.weather.data.repo
 
-import com.nicholasdoglio.weather.data.entities.CurrentWeather
-import com.nicholasdoglio.weather.data.entities.Forecast
+import com.nicholasdoglio.weather.data.model.CurrentWeather
+import com.nicholasdoglio.weather.data.model.Forecast
 import com.nicholasdoglio.weather.data.local.LocalDataSource
 import com.nicholasdoglio.weather.data.remote.RemoteDataSource
 import io.reactivex.Completable
@@ -15,7 +15,6 @@ class WeatherRepository @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource
 ) : Repository {
-
     override fun addLocation(lat: Double, long: Double): Completable {
         return remoteDataSource.getWeather(lat, long)
             .flatMapCompletable { localDataSource.addCityToList(it) }
@@ -34,14 +33,17 @@ class WeatherRepository @Inject constructor(
         .flatMap { listOfIds -> remoteDataSource.getUpdatesForList(listOfIds) }
         .flatMapCompletable { localDataSource.addListOFCitiesToList(it) }
 
-    override fun getWeatherList(): Flowable<List<CurrentWeather>> {
+    override fun observeWeatherLocations(): Flowable<List<CurrentWeather>> {
         return localDataSource.getCurrentWeatherList()
+    }
+
+    override fun observeNumberOfLocations(): Flowable<Int> {
+        return localDataSource.getNumberOfCitiesInList()
     }
 
     override fun getForecast(id: String): Single<Forecast> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         // SwitchIfEmpty
-
     }
 }
 

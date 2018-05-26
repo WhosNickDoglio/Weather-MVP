@@ -42,12 +42,18 @@ class WeatherListPresenter @Inject constructor(private val weatherRepository: We
         compositeDisposable += weatherRepository.updateWeatherList()
             .subscribeOn(Schedulers.io())
             .subscribe({ handleRefreshListSuccess() }, { handleError(it) })
-
     }
 
-    override fun getWeatherInformation() {
+    override fun observeNumberOfLocations() {
+        compositeDisposable += weatherRepository.observeNumberOfLocations()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ handleNumberOfLocations(it) }, { it.printStackTrace() })
+    }
+
+    override fun observeWeatherList() {
         weatherListView?.showLoadingBar()
-        compositeDisposable += weatherRepository.getWeatherList()
+        compositeDisposable += weatherRepository.observeWeatherLocations()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ handleGetWeatherInformationSuccess(it) }, { handleError(it) })
@@ -66,7 +72,13 @@ class WeatherListPresenter @Inject constructor(private val weatherRepository: We
 
     private fun handleAddLocationSuccess(currentWeather: CurrentWeather) {
         weatherListView?.hideLoadingBar()
+    }
 
+    private fun handleNumberOfLocations(numOfLocations: Int) {
+        when (numOfLocations > 0) {
+            true -> weatherListView?.showList()
+            false -> weatherListView?.showEmptyView()
+        }
     }
 
     //TODO I need to connect this to Room

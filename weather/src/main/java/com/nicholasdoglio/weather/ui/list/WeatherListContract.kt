@@ -14,7 +14,9 @@ interface WeatherListContract {
 
         fun refreshWeatherListLocations()
 
-        fun getWeatherInformation()
+        fun observeWeatherList()
+
+        fun observeNumberOfLocations()
     }
 
     interface View : BaseView<Presenter> {
@@ -22,6 +24,8 @@ interface WeatherListContract {
         fun submitList(weatherList: List<CurrentWeather>)
 
         fun showEmptyView()
+
+        fun showList()
 
         fun locationAdded()
 
