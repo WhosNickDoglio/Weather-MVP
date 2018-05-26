@@ -1,6 +1,6 @@
 package com.nicholasdoglio.weather.ui.list
 
-import com.nicholasdoglio.weather.data.entities.CurrentWeather
+import com.nicholasdoglio.weather.data.model.CurrentWeather
 import com.nicholasdoglio.weather.data.repo.WeatherRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

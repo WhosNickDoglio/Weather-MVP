@@ -7,7 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import android.widget.Toast
 import com.nicholasdoglio.weather.R
-import com.nicholasdoglio.weather.data.entities.CurrentWeather
+import com.nicholasdoglio.weather.data.model.CurrentWeather
 import com.nicholasdoglio.weather.ui.common.NavigationController
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_weather_list.*

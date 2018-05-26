@@ -1,10 +1,10 @@
 package com.nicholasdoglio.weather.data.remote
 
-import com.nicholasdoglio.weather.data.entities.CurrentWeather
-import com.nicholasdoglio.weather.data.entities.Forecast
+import com.nicholasdoglio.weather.BuildConfig
 import com.nicholasdoglio.weather.data.mapper.CurrentWeatherMapper
 import com.nicholasdoglio.weather.data.mapper.ForecastMapper
-import com.nicholasdoglio.weather.util.Constants
+import com.nicholasdoglio.weather.data.model.CurrentWeather
+import com.nicholasdoglio.weather.data.model.Forecast
 import io.reactivex.Single
 import javax.inject.Inject
 

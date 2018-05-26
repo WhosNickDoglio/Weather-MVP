@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nicholasdoglio.weather.R
-import com.nicholasdoglio.weather.data.entities.CurrentWeather
+import com.nicholasdoglio.weather.data.model.CurrentWeather
 import com.nicholasdoglio.weather.ui.common.NavigationController
 import kotlinx.android.synthetic.main.item_weather_list.view.*
 

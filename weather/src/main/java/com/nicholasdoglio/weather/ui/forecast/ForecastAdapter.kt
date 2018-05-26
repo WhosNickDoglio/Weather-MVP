@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nicholasdoglio.weather.R
-import com.nicholasdoglio.weather.data.entities.Forecast
+import com.nicholasdoglio.weather.data.model.Forecast
 
 /**
  * @author Nicholas Doglio

@@ -1,8 +1,8 @@
 package com.nicholasdoglio.weather.data.remote
 
-import com.nicholasdoglio.weather.data.model.ForecastResponse
-import com.nicholasdoglio.weather.data.model.ListOfCitiesResponse
-import com.nicholasdoglio.weather.data.model.WeatherResponse
+import com.nicholasdoglio.weather.data.response.ForecastResponse
+import com.nicholasdoglio.weather.data.response.ListOfCitiesResponse
+import com.nicholasdoglio.weather.data.response.WeatherResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

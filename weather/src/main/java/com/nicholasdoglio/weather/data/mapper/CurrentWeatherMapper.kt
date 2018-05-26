@@ -1,8 +1,8 @@
 package com.nicholasdoglio.weather.data.mapper
 
 import com.nicholasdoglio.weather.R
-import com.nicholasdoglio.weather.data.entities.CurrentWeather
-import com.nicholasdoglio.weather.data.model.WeatherResponse
+import com.nicholasdoglio.weather.data.model.CurrentWeather
+import com.nicholasdoglio.weather.data.response.WeatherResponse
 
 class CurrentWeatherMapper() : Mapper<WeatherResponse, CurrentWeather> {
 

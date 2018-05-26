@@ -1,6 +1,6 @@
 package com.nicholasdoglio.weather.ui.list
 
-import com.nicholasdoglio.weather.data.entities.CurrentWeather
+import com.nicholasdoglio.weather.data.model.CurrentWeather
 import com.nicholasdoglio.weather.ui.base.BasePresenter
 import com.nicholasdoglio.weather.ui.base.BaseView
 
