@@ -70,6 +70,7 @@ dependencies {
     implementation dependencies.rxRoom
     implementation dependencies.okhttp
     implementation dependencies.okhttpLogger
+    implementation dependencies.threeten
     debugImplementation dependencies.leakCanaryDebug
     releaseImplementation dependencies.leakCanaryRelease
 
