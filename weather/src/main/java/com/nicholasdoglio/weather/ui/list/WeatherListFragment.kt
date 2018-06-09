@@ -18,11 +18,9 @@ import javax.inject.Inject
  * @author Nicholas Doglio
  */
 class WeatherListFragment : DaggerFragment(), WeatherListContract.View {
-    @Inject
-    lateinit var navigationController: NavigationController
 
-    @Inject
-    lateinit var weatherListPresenter: WeatherListContract.Presenter
+    @Inject lateinit var navigationController: NavigationController
+    @Inject lateinit var weatherListPresenter: WeatherListContract.Presenter
 
     private lateinit var weatherListAdapter: WeatherListAdapter
 
