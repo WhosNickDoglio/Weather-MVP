@@ -71,10 +71,12 @@ dependencies {
     implementation dependencies.okhttp
     implementation dependencies.okhttpLogger
     implementation dependencies.threeten
+    implementation dependencies.moshi
     debugImplementation dependencies.leakCanaryDebug
     releaseImplementation dependencies.leakCanaryRelease
 
     kapt dependencies.epoxyKapt
+    kapt dependencies.moshiCodeGen
     kapt dependencies.roomKapt
     kapt dependencies.daggerKapt
     kapt dependencies.daggerAndroidKapt

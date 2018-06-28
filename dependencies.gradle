@@ -20,7 +20,7 @@ ext {
     rxKotlin = '2.2.0'
     rxAndroid = '2.0.2'
     support = '27.1.1'
-    constraint = '1.1.1'
+    constraint = '1.1.2'
     places = '15.0.1'
     epoxy = '2.12.0'
     mosby = '3.1.0'
@@ -70,7 +70,9 @@ ext {
             rxRoom              : "android.arch.persistence.room:rxjava2:${room}",
             okhttp              : "com.squareup.okhttp3:okhttp:${okhttp}",
             okhttpLogger        : "com.squareup.okhttp3:logging-interceptor:${okhttp}",
-            threeten            : "com.jakewharton.threetenabp:threetenabp:${threeten}"
+            threeten            : "com.jakewharton.threetenabp:threetenabp:${threeten}",
+            moshi               : "com.squareup.moshi:moshi:${moshi}",
+            moshiCodeGen        : "com.squareup.moshi:moshi-kotlin-codegen:$moshi"
     ]
 
     testDependencies = [
