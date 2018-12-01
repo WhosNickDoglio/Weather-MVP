@@ -26,7 +26,7 @@ class WeatherListFragment : DaggerFragment(), WeatherListContract.View {
 
     private var lat: Double? = null
 
-    //TODO last updated header in RecyclerView
+    //TODO last updated header in RecyclerView and footer "Powered by OpenWeatherMap"
 
     private var long: Double? = null
     //TODO Spanish cities are broken
@@ -45,8 +45,11 @@ class WeatherListFragment : DaggerFragment(), WeatherListContract.View {
 
         val mainActivity = activity as AppCompatActivity
 
-        mainActivity.setSupportActionBar(listToolbar)
-        mainActivity.supportActionBar?.setDisplayShowTitleEnabled(false)
+        mainActivity.apply {
+            setSupportActionBar(listToolbar)
+            supportActionBar?.setDisplayShowTitleEnabled(false)
+        }
+
         listToolbar.title = "Locations"
         setHasOptionsMenu(true)
 
@@ -134,13 +137,12 @@ class WeatherListFragment : DaggerFragment(), WeatherListContract.View {
         private val LAT_KEY = "LAT"
         private val LONG_KEY = "LONG"
 
-        fun create(latitude: Double, longitude: Double): WeatherListFragment {
-            val weatherListFragment = WeatherListFragment()
-            val arguments = Bundle()
-            arguments.putDouble(LAT_KEY, latitude)
-            arguments.putDouble(LONG_KEY, longitude)
-            weatherListFragment.arguments = arguments
-            return weatherListFragment
-        }
+        fun create(latitude: Double, longitude: Double): WeatherListFragment =
+            WeatherListFragment().apply {
+                arguments = Bundle().apply {
+                    putDouble(LAT_KEY, latitude)
+                    putDouble(LONG_KEY, longitude)
+                }
+            }
     }
 }

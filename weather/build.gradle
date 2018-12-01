@@ -41,6 +41,10 @@ android {
     }
 }
 
+androidExtensions {
+    experimental = true
+}
+
 dependencies {
     def dependencies = rootProject.ext.dependencies
     def testDependencies = rootProject.ext.testDependencies
@@ -48,7 +52,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     implementation dependencies.kotlin
-    implementation dependencies.retrofit
+//    implementation dependencies.retrofit
     implementation dependencies.moshiConverter
     implementation dependencies.rxAdapter
     implementation dependencies.rxkotlin

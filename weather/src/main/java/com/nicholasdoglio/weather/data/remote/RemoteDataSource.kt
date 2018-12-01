@@ -43,5 +43,5 @@ class RemoteDataSource @Inject constructor(
 
     fun getForecast(id: String): Single<Forecast> =
         weatherService.getForecast(id, weatherApiKey, imperialUnits)
-            .map(forecastMapper::mapFromResponse)
+            .map { forecastMapper.mapFromResponse(it) }
 }

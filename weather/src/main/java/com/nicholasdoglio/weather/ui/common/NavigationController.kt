@@ -7,7 +7,7 @@ import com.google.android.gms.location.places.ui.PlaceSelectionListener
 import com.google.android.gms.location.places.ui.SupportPlaceAutocompleteFragment
 import com.nicholasdoglio.weather.R
 import com.nicholasdoglio.weather.ui.MainActivity
-import com.nicholasdoglio.weather.ui.forecast.ForecastFragment
+import com.nicholasdoglio.weather.ui.forecast.details.ForecastFragment
 import com.nicholasdoglio.weather.ui.list.WeatherListFragment
 import timber.log.Timber
 import javax.inject.Inject
@@ -64,7 +64,7 @@ class NavigationController @Inject constructor(private val mainActivity: MainAct
         })
 
         fragmentManager.beginTransaction()
-            .replace(containerId, placesFragment)
+            .replace(containerId, PlacesFragment())
             .addToBackStack(null)
             .commit()
     }

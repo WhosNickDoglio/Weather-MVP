@@ -30,18 +30,14 @@ class WeatherApp : DaggerApplication() {
     private fun initStrictMode() {
         StrictMode.setThreadPolicy(
             StrictMode.ThreadPolicy.Builder()
-                .detectDiskReads()
-                .detectDiskWrites()
-                .detectNetwork()
-                .penaltyLog()
+                .detectAll()
+                .penaltyDeath()
                 .build()
         )
 
         StrictMode.setVmPolicy(
             StrictMode.VmPolicy.Builder()
-                .detectLeakedSqlLiteObjects()
-                .detectLeakedClosableObjects()
-                .penaltyLog()
+                .detectAll()
                 .penaltyDeath()
                 .build()
         )

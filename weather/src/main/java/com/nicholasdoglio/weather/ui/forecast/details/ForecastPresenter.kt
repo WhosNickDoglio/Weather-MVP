@@ -1,4 +1,4 @@
-package com.nicholasdoglio.weather.ui.forecast
+package com.nicholasdoglio.weather.ui.forecast.details
 
 import com.nicholasdoglio.weather.data.repo.WeatherRepository
 import io.reactivex.disposables.CompositeDisposable
@@ -9,6 +9,7 @@ import javax.inject.Inject
  */
 class ForecastPresenter @Inject constructor(private val weatherRepository: WeatherRepository) :
     ForecastContract.Presenter {
+
     private var view: ForecastContract.View? = null
     private val compositeDisposable = CompositeDisposable()
 

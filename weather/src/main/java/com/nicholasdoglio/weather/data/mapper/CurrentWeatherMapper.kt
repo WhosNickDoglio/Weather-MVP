@@ -3,8 +3,9 @@ package com.nicholasdoglio.weather.data.mapper
 import com.nicholasdoglio.weather.R
 import com.nicholasdoglio.weather.data.model.CurrentWeather
 import com.nicholasdoglio.weather.data.response.WeatherResponse
+import javax.inject.Inject
 
-class CurrentWeatherMapper() : Mapper<WeatherResponse, CurrentWeather> {
+class CurrentWeatherMapper @Inject constructor() : Mapper<WeatherResponse, CurrentWeather> {
 
     override fun mapFromResponse(response: WeatherResponse): CurrentWeather {
         return CurrentWeather(

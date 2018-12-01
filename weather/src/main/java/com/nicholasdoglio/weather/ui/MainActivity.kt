@@ -14,11 +14,9 @@ import javax.inject.Inject
  */
 class MainActivity : DaggerAppCompatActivity(), HasSupportFragmentInjector {
 
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+    @Inject lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
-    @Inject
-    lateinit var navigationController: NavigationController
+    @Inject lateinit var navigationController: NavigationController
 
     override fun supportFragmentInjector(): DispatchingAndroidInjector<Fragment> =
         dispatchingAndroidInjector

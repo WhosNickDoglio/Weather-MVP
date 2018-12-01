@@ -1,4 +1,4 @@
-package com.nicholasdoglio.weather.ui.forecast
+package com.nicholasdoglio.weather.ui.forecast.details
 
 import com.nicholasdoglio.weather.ui.base.BasePresenter
 import com.nicholasdoglio.weather.ui.base.BaseView

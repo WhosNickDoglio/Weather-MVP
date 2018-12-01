@@ -9,7 +9,8 @@ import android.view.ViewGroup
 import com.nicholasdoglio.weather.R
 import com.nicholasdoglio.weather.data.model.CurrentWeather
 import com.nicholasdoglio.weather.ui.common.NavigationController
-import kotlinx.android.synthetic.main.item_weather_list.view.*
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.item_weather_list.*
 
 /**
  * @author Nicholas Doglio
@@ -24,14 +25,24 @@ class WeatherListAdapter(private val navigationController: NavigationController)
 
     override fun onBindViewHolder(holder: WeatherListViewHolder, position: Int) {
         holder.bind(getItem(position))
-//        holder.itemView.setOnClickListener { navigationController.openForecastFragment(getItem(position).id) }
+        holder.itemView.setOnClickListener {
+            navigationController.openForecastFragment(
+                getItem(
+                    position
+                ).id
+            )
+        }
     }
 
-    inner class WeatherListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class WeatherListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+        LayoutContainer {
+
+        override val containerView: View?
+            get() = itemView
 
         fun bind(currentWeather: CurrentWeather) {
-            itemView.locationName.text = currentWeather.locationName
-            itemView.currentTemp.text = Math.round(currentWeather.currentTemp).toString()
+            locationName.text = currentWeather.locationName
+            currentTemp.text = Math.round(currentWeather.currentTemp).toString()
 //            itemView.weatherPhoto TODO fix this
         }
     }
