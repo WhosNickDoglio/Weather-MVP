@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["compilesdk"]
+    defaultConfig {
+        minSdkVersion globalConfiguration["minsdk"]
+        targetSdkVersion globalConfiguration["targetsdk"]
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    def dependencies = rootProject.ext.dependencies
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation dependencies.kotlin
+//    implementation dependencies.timber
+//    implementation dependencies.dagger
+//    implementation dependencies.coroutines
+//    implementation dependencies.paging
+//
+//    kapt dependencies.daggerCompiler
+//
+//    testImplementation dependencies.junit
+//    testImplementation dependencies.mockk
+//
+//    //TODO this might not be necessary, figure out best way to share dependenices
+//    androidTestImplementation dependencies.espressoRunner
+//    androidTestImplementation dependencies.espressoRules
+//    androidTestImplementation dependencies.espressoCore
+}
