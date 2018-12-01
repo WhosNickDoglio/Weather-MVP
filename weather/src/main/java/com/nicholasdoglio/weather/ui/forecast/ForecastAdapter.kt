@@ -12,8 +12,7 @@ import com.nicholasdoglio.weather.data.model.Forecast
 /**
  * @author Nicholas Doglio
  */
-class ForecastAdapter() :
-    ListAdapter<Forecast, ForecastAdapter.ForecastViewHolder>(forecastDiff) {
+class ForecastAdapter : ListAdapter<Forecast, ForecastAdapter.ForecastViewHolder>(forecastDiff) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForecastViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -34,15 +33,15 @@ class ForecastAdapter() :
     companion object {
         private val forecastDiff = object : DiffUtil.ItemCallback<Forecast>() {
             override fun areItemsTheSame(
-                oldItem: Forecast?,
-                newItem: Forecast?
+                oldItem: Forecast,
+                newItem: Forecast
             ): Boolean {
-                return oldItem?.id == newItem?.id
+                return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(
-                oldItem: Forecast?,
-                newItem: Forecast?
+                oldItem: Forecast,
+                newItem: Forecast
             ): Boolean {
                 return oldItem == newItem
             }
