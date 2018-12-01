@@ -1,1 +1,1 @@
-include ':weather',':data', ':domain', ':core'
+include ':weather',':data', ':domain', ':core', ':buildSrc'
