@@ -1,7 +1,6 @@
 package com.nicholasdoglio.weather.data.local
 
-import android.arch.persistence.room.Dao
+import androidx.room.Dao
 
 @Dao
-interface ForecastDao {
-}
+interface ForecastDao

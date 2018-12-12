@@ -7,12 +7,12 @@ import javax.inject.Inject
 
 class CurrentWeatherMapper @Inject constructor() : Mapper<WeatherResponse, CurrentWeather> {
 
-    override fun mapFromResponse(response: WeatherResponse): CurrentWeather {
-        return CurrentWeather(
-            id = response.id,
-            locationName = response.name,
-            currentTemp = response.main.temp,
-            weatherImage = R.mipmap.ic_launcher_round //TODO fix this
-        )
-    }
+  override fun mapFromResponse(response: WeatherResponse): CurrentWeather {
+    return CurrentWeather(
+      id = response.id,
+      locationName = response.name,
+      currentTemp = response.main.temp,
+      weatherImage = R.mipmap.ic_launcher_round //TODO fix this
+    )
+  }
 }

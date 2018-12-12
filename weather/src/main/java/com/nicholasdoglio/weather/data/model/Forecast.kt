@@ -1,10 +1,10 @@
 package com.nicholasdoglio.weather.data.model
 
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity
 data class Forecast(
-    @PrimaryKey val id: Int,
-    val locationName: String
+  @PrimaryKey val id: Int,
+  val locationName: String
 )

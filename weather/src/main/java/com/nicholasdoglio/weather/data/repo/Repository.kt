@@ -11,17 +11,17 @@ import io.reactivex.Single
  */
 interface Repository {
 
-    fun addLocation(lat: Double, long: Double): Completable
+  fun addLocation(lat: Double, long: Double): Completable
 
-    fun removeLocation(currentWeather: CurrentWeather): Completable
+  fun removeLocation(currentWeather: CurrentWeather): Completable
 
-    fun getWeather(id: Int): Single<CurrentWeather>
+  fun getWeather(id: Int): Single<CurrentWeather>
 
-    fun updateWeatherList(): Completable
+  fun updateWeatherList(): Completable
 
-    fun observeWeatherLocations(): Flowable<List<CurrentWeather>>
+  fun observeWeatherLocations(): Flowable<List<CurrentWeather>>
 
-    fun observeNumberOfLocations(): Flowable<Int>
+  fun observeNumberOfLocations(): Flowable<Int>
 
-    fun getForecast(id: String): Single<Forecast>
+  fun getForecast(id: String): Single<Forecast>
 }

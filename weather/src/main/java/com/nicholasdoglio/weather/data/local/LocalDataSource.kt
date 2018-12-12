@@ -7,28 +7,28 @@ import javax.inject.Inject
 
 class LocalDataSource @Inject constructor(private val weatherDatabase: WeatherDatabase) {
 
-    fun getCurrentWeatherList() = weatherDatabase.currentWeatherDao().getWeatherList()
+  fun getCurrentWeatherList() = weatherDatabase.currentWeatherDao().getWeatherList()
 
-    fun getCityIds(): Single<String> =
-        weatherDatabase.currentWeatherDao().getAllIds().map { listOfIds -> listOfIds.joinToString(",") }
+  fun getCityIds(): Single<String> =
+    weatherDatabase.currentWeatherDao().getAllIds().map { listOfIds -> listOfIds.joinToString(",") }
 
-    //Instead of blocking the add in the repo, block FAB in listFragment by observing this
-    fun getNumberOfCitiesInList() = weatherDatabase.currentWeatherDao().getNumberOfCities()
+  //Instead of blocking the add in the repo, block FAB in listFragment by observing this
+  fun getNumberOfCitiesInList() = weatherDatabase.currentWeatherDao().getNumberOfCities()
 
-    fun addCityToList(currentWeather: CurrentWeather): Completable =
-        Completable.fromAction { weatherDatabase.currentWeatherDao().addLocation(currentWeather) }
+  fun addCityToList(currentWeather: CurrentWeather): Completable =
+    Completable.fromAction { weatherDatabase.currentWeatherDao().addLocation(currentWeather) }
 
-    fun addListOFCitiesToList(currentWeather: List<CurrentWeather>): Completable =
-        Completable.fromAction {
-            weatherDatabase.currentWeatherDao().addListOfLocations(currentWeather)
-        }
-
-    fun removeCity(currentWeather: CurrentWeather): Completable = Completable.fromAction {
-        weatherDatabase.currentWeatherDao().removeLocation(currentWeather)
+  fun addListOFCitiesToList(currentWeather: List<CurrentWeather>): Completable =
+    Completable.fromAction {
+      weatherDatabase.currentWeatherDao().addListOfLocations(currentWeather)
     }
 
-    fun getCityById(id: Int) = weatherDatabase.currentWeatherDao().getLocation(id)
+  fun removeCity(currentWeather: CurrentWeather): Completable = Completable.fromAction {
+    weatherDatabase.currentWeatherDao().removeLocation(currentWeather)
+  }
 
-    fun clearList(): Completable =
-        Completable.fromAction { weatherDatabase.currentWeatherDao().clearTable() }
+  fun getCityById(id: Int) = weatherDatabase.currentWeatherDao().getLocation(id)
+
+  fun clearList(): Completable =
+    Completable.fromAction { weatherDatabase.currentWeatherDao().clearTable() }
 }

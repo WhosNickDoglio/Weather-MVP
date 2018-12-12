@@ -12,40 +12,40 @@ import timber.log.Timber
  */
 class WeatherApp : DaggerApplication() {
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> =
-        DaggerAppComponent.builder().application(this).build()
+  override fun applicationInjector(): AndroidInjector<out DaggerApplication> =
+    DaggerAppComponent.builder().application(this).build()
 
-    override fun onCreate() {
-        super.onCreate()
-        //TODO set up Debugging tools
-        initTimber()
-        initLeakCanary()
-        initStrictMode()
-    }
+  override fun onCreate() {
+    super.onCreate()
+    //TODO set up Debugging tools
+    initTimber()
+    initLeakCanary()
+    initStrictMode()
+  }
 
-    private fun initTimber() {
-        Timber.plant(Timber.DebugTree())
-    }
+  private fun initTimber() {
+    Timber.plant(Timber.DebugTree())
+  }
 
-    private fun initStrictMode() {
-        StrictMode.setThreadPolicy(
-            StrictMode.ThreadPolicy.Builder()
-                .detectAll()
-                .penaltyDeath()
-                .build()
-        )
+  private fun initStrictMode() {
+    StrictMode.setThreadPolicy(
+      StrictMode.ThreadPolicy.Builder()
+        .detectAll()
+        .penaltyDeath()
+        .build()
+    )
 
-        StrictMode.setVmPolicy(
-            StrictMode.VmPolicy.Builder()
-                .detectAll()
-                .penaltyDeath()
-                .build()
-        )
-    }
+    StrictMode.setVmPolicy(
+      StrictMode.VmPolicy.Builder()
+        .detectAll()
+        .penaltyDeath()
+        .build()
+    )
+  }
 
-    private fun initLeakCanary() {
-        if (LeakCanary.isInAnalyzerProcess(this)) return
+  private fun initLeakCanary() {
+    if (LeakCanary.isInAnalyzerProcess(this)) return
 
-        LeakCanary.install(this)
-    }
+    LeakCanary.install(this)
+  }
 }

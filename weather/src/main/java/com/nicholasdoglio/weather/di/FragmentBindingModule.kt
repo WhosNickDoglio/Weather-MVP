@@ -13,15 +13,16 @@ import dagger.android.ContributesAndroidInjector
 /**
  * @author Nicholas Doglio
  */
-@Module abstract class FragmentBindingModule {
+@Module
+abstract class FragmentBindingModule {
 
-    @ContributesAndroidInjector abstract fun contributesListFragment(): WeatherListFragment
+  @ContributesAndroidInjector abstract fun contributesListFragment(): WeatherListFragment
 
-    @Binds
-    abstract fun listPresenter(weatherListPresenter: WeatherListPresenter): WeatherListContract.Presenter
+  @Binds
+  abstract fun listPresenter(weatherListPresenter: WeatherListPresenter): WeatherListContract.Presenter
 
-    @ContributesAndroidInjector abstract fun contributesForecastFragment(): ForecastFragment
+  @ContributesAndroidInjector abstract fun contributesForecastFragment(): ForecastFragment
 
-    @Binds
-    abstract fun forecastPresenter(forecastPresenter: ForecastPresenter): ForecastContract.Presenter
+  @Binds
+  abstract fun forecastPresenter(forecastPresenter: ForecastPresenter): ForecastContract.Presenter
 }

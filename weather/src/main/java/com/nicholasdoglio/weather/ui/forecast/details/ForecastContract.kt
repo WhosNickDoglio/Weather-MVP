@@ -8,11 +8,7 @@ import com.nicholasdoglio.weather.ui.base.BaseView
  */
 interface ForecastContract {
 
-    interface Presenter : BasePresenter<View> {
+  interface Presenter : BasePresenter<View>
 
-    }
-
-    interface View : BaseView<Presenter> {
-
-    }
+  interface View : BaseView<Presenter>
 }

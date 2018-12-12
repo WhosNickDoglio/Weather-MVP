@@ -8,29 +8,29 @@ import com.nicholasdoglio.weather.ui.base.BaseView
  * @author Nicholas Doglio
  */
 interface WeatherListContract {
-    interface Presenter : BasePresenter<View> {
+  interface Presenter : BasePresenter<View> {
 
-        fun addLocationToList(lat: Double, long: Double)
+    fun addLocationToList(lat: Double, long: Double)
 
-        fun refreshWeatherListLocations()
+    fun refreshWeatherListLocations()
 
-        fun observeWeatherList()
+    fun observeWeatherList()
 
-        fun observeNumberOfLocations()
-    }
+    fun observeNumberOfLocations()
+  }
 
-    interface View : BaseView<Presenter> {
+  interface View : BaseView<Presenter> {
 
-        fun submitList(weatherList: List<CurrentWeather>)
+    fun submitList(weatherList: List<CurrentWeather>)
 
-        fun showEmptyView()
+    fun showEmptyView()
 
-        fun showList()
+    fun showList()
 
-        fun locationAdded()
+    fun locationAdded()
 
-        fun listTooLong()
+    fun listTooLong()
 
-        fun listUpdated()
-    }
+    fun listUpdated()
+  }
 }

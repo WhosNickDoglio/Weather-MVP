@@ -1,14 +1,13 @@
 package com.nicholasdoglio.weather.ui.base
 
-
 /**
  * @author Nicholas Doglio
  */
 interface BasePresenter<T> {
 
-    fun attach(view: T)
+  fun attach(view: T)
 
-    fun detach()
+  fun detach()
 
-    fun clearDisposables()
+  fun clearDisposables()
 }

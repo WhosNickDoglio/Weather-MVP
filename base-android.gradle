@@ -3,12 +3,10 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    def globalConfiguration = rootProject.extensions.getByName("ext")
-
-    compileSdkVersion globalConfiguration["compilesdk"]
+    compileSdkVersion 28
     defaultConfig {
-        minSdkVersion globalConfiguration["minsdk"]
-        targetSdkVersion globalConfiguration["targetsdk"]
+        minSdkVersion 21
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -28,23 +26,15 @@ android {
 }
 
 dependencies {
-    def dependencies = rootProject.ext.dependencies
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.11"
+    implementation "com.jakewharton.timber:timber:4.7.1"
+    implementation "com.google.dagger:dagger:2.19"
 
-    implementation dependencies.kotlin
-//    implementation dependencies.timber
-//    implementation dependencies.dagger
-//    implementation dependencies.coroutines
-//    implementation dependencies.paging
-//
-//    kapt dependencies.daggerCompiler
-//
-//    testImplementation dependencies.junit
-//    testImplementation dependencies.mockk
-//
-//    //TODO this might not be necessary, figure out best way to share dependenices
-//    androidTestImplementation dependencies.espressoRunner
-//    androidTestImplementation dependencies.espressoRules
-//    androidTestImplementation dependencies.espressoCore
+    kapt "com.google.dagger:dagger-compiler:2.19"
+
+    testImplementation "junit:junit:4.12"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:1.3.11"
+    testImplementation "io.mockk:mockk:1.8.13.kotlin13"
+
 }

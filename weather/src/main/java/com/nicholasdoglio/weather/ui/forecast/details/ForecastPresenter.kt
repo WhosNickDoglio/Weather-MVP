@@ -8,21 +8,20 @@ import javax.inject.Inject
  * @author Nicholas Doglio
  */
 class ForecastPresenter @Inject constructor(private val weatherRepository: WeatherRepository) :
-    ForecastContract.Presenter {
+  ForecastContract.Presenter {
 
-    private var view: ForecastContract.View? = null
-    private val compositeDisposable = CompositeDisposable()
+  private var view: ForecastContract.View? = null
+  private val compositeDisposable = CompositeDisposable()
 
+  override fun attach(view: ForecastContract.View) {
+    this.view = view
+  }
 
-    override fun attach(view: ForecastContract.View) {
-        this.view = view
-    }
+  override fun detach() {
+    view = null
+  }
 
-    override fun detach() {
-        view = null
-    }
-
-    override fun clearDisposables() {
-        compositeDisposable.clear()
-    }
+  override fun clearDisposables() {
+    compositeDisposable.clear()
+  }
 }

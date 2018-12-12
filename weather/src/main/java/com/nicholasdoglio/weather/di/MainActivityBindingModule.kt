@@ -7,7 +7,8 @@ import dagger.android.ContributesAndroidInjector
 /**
  * @author Nicholas Doglio
  */
-@Module abstract class MainActivityBindingModule {
-    @ContributesAndroidInjector(modules = [FragmentBindingModule::class])
-    abstract fun contributesMainActivity(): MainActivity
+@Module
+abstract class MainActivityBindingModule {
+  @ContributesAndroidInjector(modules = [FragmentBindingModule::class])
+  abstract fun contributesMainActivity(): MainActivity
 }

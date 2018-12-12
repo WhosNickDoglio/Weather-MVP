@@ -5,13 +5,8 @@ import com.nicholasdoglio.weather.ui.base.BaseView
 
 interface ForecastPagerContract {
 
-    interface View : BaseView<Presenter> {
+  interface View : BaseView<Presenter>
 
-    }
-
-    interface Presenter : BasePresenter<View> {
-
-    }
-
+  interface Presenter : BasePresenter<View>
 
 }
