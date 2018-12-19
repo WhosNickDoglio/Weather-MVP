@@ -13,7 +13,7 @@ buildscript {
 }
 
 plugins {
-    id("jmfayard.github.io.gradle-kotlin-dsl-libs") version "0.2.6"
+  id("de.fayard.buildSrcVersions") version "0.3.2"
 }
 
 allprojects {
