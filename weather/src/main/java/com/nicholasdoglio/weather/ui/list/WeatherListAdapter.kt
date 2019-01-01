@@ -5,12 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil.ItemCallback
 import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.nicholasdoglio.weather.R
 import com.nicholasdoglio.weather.data.model.CurrentWeather
 import com.nicholasdoglio.weather.ui.common.NavigationController
-import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.item_weather_list.currentTemp
-import kotlinx.android.synthetic.main.item_weather_list.locationName
 
 /**
  * @author Nicholas Doglio
@@ -26,24 +24,19 @@ class WeatherListAdapter(private val navigationController: NavigationController)
   override fun onBindViewHolder(holder: WeatherListViewHolder, position: Int) {
     holder.bind(getItem(position))
     holder.itemView.setOnClickListener {
-      navigationController.openForecastFragment(
-        getItem(
-          position
-        ).id
-      )
+      navigationController.openForecastFragment(getItem(position).id)
     }
   }
 
-  inner class WeatherListViewHolder(itemView: View) :
-    androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView),
-    LayoutContainer {
-
-    override val containerView: View?
-      get() = itemView
+  inner class WeatherListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+//    LayoutContainer
+//
+//    override val containerView: View?
+//      get() = itemView
 
     fun bind(currentWeather: CurrentWeather) {
-      locationName.text = currentWeather.locationName
-      currentTemp.text = Math.round(currentWeather.currentTemp).toString()
+//      locationName.text = currentWeather.locationName
+//      currentTemp.text = Math.round(currentWeather.currentTemp).toString()
 //            itemView.weatherPhoto TODO fix this
     }
   }
