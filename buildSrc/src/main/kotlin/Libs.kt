@@ -30,6 +30,22 @@ object Libs {
     const val recyclerview: String = "androidx.recyclerview:recyclerview:" + Versions.recyclerview
 
     /**
+     * https://developer.android.com/topic/libraries/architecture/index.html */
+    const val room_compiler: String = "androidx.room:room-compiler:" + Versions.androidx_room
+
+    /**
+     * https://developer.android.com/topic/libraries/architecture/index.html */
+    const val room_runtime: String = "androidx.room:room-runtime:" + Versions.androidx_room
+
+    /**
+     * https://developer.android.com/topic/libraries/architecture/index.html */
+    const val room_rxjava2: String = "androidx.room:room-rxjava2:" + Versions.androidx_room
+
+    /**
+     * https://developer.android.com/topic/libraries/architecture/index.html */
+    const val room_testing: String = "androidx.room:room-testing:" + Versions.androidx_room
+
+    /**
      * https://developer.android.com/testing */
     const val espresso_core: String = "androidx.test.espresso:espresso-core:" +
         Versions.espresso_core
@@ -115,6 +131,49 @@ object Libs {
     const val leakcanary_support_fragment: String =
         "com.squareup.leakcanary:leakcanary-support-fragment:" +
             Versions.com_squareup_leakcanary
+
+    /**
+     * https://github.com/square/moshi */
+    const val moshi_kotlin_codegen: String = "com.squareup.moshi:moshi-kotlin-codegen:" +
+        Versions.com_squareup_moshi
+
+    /**
+     * https://github.com/square/moshi */
+    const val moshi_kotlin: String = "com.squareup.moshi:moshi-kotlin:" +
+        Versions.com_squareup_moshi
+
+    /**
+     * https://github.com/square/moshi */
+    const val moshi: String = "com.squareup.moshi:moshi:" + Versions.com_squareup_moshi
+
+    /**
+     * https://github.com/square/okhttp */
+    const val logging_interceptor: String = "com.squareup.okhttp3:logging-interceptor:" +
+        Versions.com_squareup_okhttp3
+
+    /**
+     * https://github.com/square/okhttp */
+    const val okhttp: String = "com.squareup.okhttp3:okhttp:" + Versions.com_squareup_okhttp3
+
+    /**
+     * https://github.com/square/retrofit/ */
+    const val adapter_rxjava2: String = "com.squareup.retrofit2:adapter-rxjava2:" +
+        Versions.com_squareup_retrofit2
+
+    /**
+     * https://github.com/square/retrofit/ */
+    const val converter_moshi: String = "com.squareup.retrofit2:converter-moshi:" +
+        Versions.com_squareup_retrofit2
+
+    /**
+     * https://github.com/square/retrofit/ */
+    const val retrofit_mock: String = "com.squareup.retrofit2:retrofit-mock:" +
+        Versions.com_squareup_retrofit2
+
+    /**
+     * https://github.com/square/retrofit/ */
+    const val retrofit: String = "com.squareup.retrofit2:retrofit:" +
+        Versions.com_squareup_retrofit2
 
     const val de_fayard_buildsrcversions_gradle_plugin: String =
         "de.fayard.buildSrcVersions:de.fayard.buildSrcVersions.gradle.plugin:" +

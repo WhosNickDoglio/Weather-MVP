@@ -1,1 +1,1 @@
-include(":weather", ":data", ":domain", ":core", ":buildSrc")
+include(":weather", ":data", ":domain", ":core", ":buildSrc", ":remote", ":persistence")

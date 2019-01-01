@@ -29,10 +29,13 @@ dependencies {
   implementation(Libs.kotlin_stdlib_jdk8)
   implementation(Libs.dagger)
   implementation(Libs.timber)
-  implementation(Libs.rxjava)
-  implementation(Libs.rxkotlin)
   kapt(Libs.dagger_compiler)
 
+  implementation(Libs.room_runtime)
+  implementation(Libs.room_rxjava2)
+  kapt(Libs.room_compiler)
+
+  testImplementation(Libs.room_testing)
   testImplementation(Libs.junit)
   testImplementation(Libs.mockk)
 }
