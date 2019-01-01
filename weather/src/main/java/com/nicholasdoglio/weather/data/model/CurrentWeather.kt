@@ -1,12 +1,7 @@
 package com.nicholasdoglio.weather.data.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+//TODO Empty models just to get past errors
 
-@Entity
-data class CurrentWeather(
-  @PrimaryKey val id: Int,
-  val locationName: String,
-  val currentTemp: Double,
-  val weatherImage: Int
-)
+data class CurrentWeather(val id: Int)
+
+data class Forecast(val id: Int)
