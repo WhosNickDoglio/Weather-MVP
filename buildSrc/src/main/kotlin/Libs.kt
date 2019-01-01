@@ -4,185 +4,185 @@
  * Update this file with
  *   `$ ./gradlew buildSrcVersions` */
 object Libs {
-  /**
-   * http://developer.android.com/tools/extras/support-library.html */
-  const val appcompat: String = "androidx.appcompat:appcompat:" + Versions.appcompat
+    /**
+     * http://developer.android.com/tools/extras/support-library.html */
+    const val appcompat: String = "androidx.appcompat:appcompat:" + Versions.appcompat
 
-  /**
-   * http://developer.android.com/tools/extras/support-library.html */
-  const val cardview: String = "androidx.cardview:cardview:" + Versions.cardview
+    /**
+     * http://developer.android.com/tools/extras/support-library.html */
+    const val cardview: String = "androidx.cardview:cardview:" + Versions.cardview
 
-  /**
-   * http://tools.android.com */
-  const val constraintlayout: String = "androidx.constraintlayout:constraintlayout:" +
-      Versions.constraintlayout
+    /**
+     * http://tools.android.com */
+    const val constraintlayout: String = "androidx.constraintlayout:constraintlayout:" +
+        Versions.constraintlayout
 
-  /**
-   * http://developer.android.com/tools/extras/support-library.html */
-  const val core_ktx: String = "androidx.core:core-ktx:" + Versions.core_ktx
+    /**
+     * http://developer.android.com/tools/extras/support-library.html */
+    const val core_ktx: String = "androidx.core:core-ktx:" + Versions.core_ktx
 
-  /**
-   * http://developer.android.com/tools/extras/support-library.html */
-  const val fragment_ktx: String = "androidx.fragment:fragment-ktx:" + Versions.fragment_ktx
+    /**
+     * http://developer.android.com/tools/extras/support-library.html */
+    const val fragment_ktx: String = "androidx.fragment:fragment-ktx:" + Versions.fragment_ktx
 
-  /**
-   * http://developer.android.com/tools/extras/support-library.html */
-  const val recyclerview: String = "androidx.recyclerview:recyclerview:" + Versions.recyclerview
+    /**
+     * http://developer.android.com/tools/extras/support-library.html */
+    const val recyclerview: String = "androidx.recyclerview:recyclerview:" + Versions.recyclerview
 
-  /**
-   * https://developer.android.com/testing */
-  const val espresso_core: String = "androidx.test.espresso:espresso-core:" +
-      Versions.espresso_core
+    /**
+     * https://developer.android.com/testing */
+    const val espresso_core: String = "androidx.test.espresso:espresso-core:" +
+        Versions.espresso_core
 
-  /**
-   * https://developer.android.com/testing */
-  const val androidx_test_rules: String = "androidx.test:rules:" + Versions.androidx_test
+    /**
+     * https://developer.android.com/testing */
+    const val androidx_test_rules: String = "androidx.test:rules:" + Versions.androidx_test
 
-  /**
-   * https://developer.android.com/testing */
-  const val androidx_test_runner: String = "androidx.test:runner:" + Versions.androidx_test
+    /**
+     * https://developer.android.com/testing */
+    const val androidx_test_runner: String = "androidx.test:runner:" + Versions.androidx_test
 
-  /**
-   * https://github.com/airbnb/epoxy */
-  const val epoxy_processor: String = "com.airbnb.android:epoxy-processor:" +
-      Versions.com_airbnb_android
+    /**
+     * https://github.com/airbnb/epoxy */
+    const val epoxy_processor: String = "com.airbnb.android:epoxy-processor:" +
+        Versions.com_airbnb_android
 
-  /**
-   * https://github.com/airbnb/epoxy */
-  const val epoxy: String = "com.airbnb.android:epoxy:" + Versions.com_airbnb_android
+    /**
+     * https://github.com/airbnb/epoxy */
+    const val epoxy: String = "com.airbnb.android:epoxy:" + Versions.com_airbnb_android
 
-  /**
-   * https://developer.android.com/studio */
-  const val com_android_tools_build_gradle: String = "com.android.tools.build:gradle:" +
-      Versions.com_android_tools_build_gradle
+    /**
+     * https://developer.android.com/studio */
+    const val com_android_tools_build_gradle: String = "com.android.tools.build:gradle:" +
+        Versions.com_android_tools_build_gradle
 
-  /**
-   * https://developer.android.com/studio */
-  const val lint_gradle: String = "com.android.tools.lint:lint-gradle:" + Versions.lint_gradle
+    /**
+     * https://developer.android.com/studio */
+    const val lint_gradle: String = "com.android.tools.lint:lint-gradle:" + Versions.lint_gradle
 
-  const val play_services_places: String = "com.google.android.gms:play-services-places:" +
-      Versions.play_services_places
+    const val play_services_places: String = "com.google.android.gms:play-services-places:" +
+        Versions.play_services_places
 
-  /**
-   * http://developer.android.com/tools/extras/support-library.html */
-  const val material: String = "com.google.android.material:material:" + Versions.material
+    /**
+     * http://developer.android.com/tools/extras/support-library.html */
+    const val material: String = "com.google.android.material:material:" + Versions.material
 
-  /**
-   * https://github.com/google/dagger */
-  const val dagger_android_processor: String = "com.google.dagger:dagger-android-processor:" +
-      Versions.com_google_dagger
+    /**
+     * https://github.com/google/dagger */
+    const val dagger_android_processor: String = "com.google.dagger:dagger-android-processor:" +
+        Versions.com_google_dagger
 
-  /**
-   * https://github.com/google/dagger */
-  const val dagger_android_support: String = "com.google.dagger:dagger-android-support:" +
-      Versions.com_google_dagger
+    /**
+     * https://github.com/google/dagger */
+    const val dagger_android_support: String = "com.google.dagger:dagger-android-support:" +
+        Versions.com_google_dagger
 
-  /**
-   * https://github.com/google/dagger */
-  const val dagger_android: String = "com.google.dagger:dagger-android:" +
-      Versions.com_google_dagger
+    /**
+     * https://github.com/google/dagger */
+    const val dagger_android: String = "com.google.dagger:dagger-android:" +
+        Versions.com_google_dagger
 
-  /**
-   * https://github.com/google/dagger */
-  const val dagger_compiler: String = "com.google.dagger:dagger-compiler:" +
-      Versions.com_google_dagger
+    /**
+     * https://github.com/google/dagger */
+    const val dagger_compiler: String = "com.google.dagger:dagger-compiler:" +
+        Versions.com_google_dagger
 
-  /**
-   * https://github.com/google/dagger */
-  const val dagger: String = "com.google.dagger:dagger:" + Versions.com_google_dagger
+    /**
+     * https://github.com/google/dagger */
+    const val dagger: String = "com.google.dagger:dagger:" + Versions.com_google_dagger
 
-  /**
-   * https://github.com/JakeWharton/ThreeTenABP/ */
-  const val threetenabp: String = "com.jakewharton.threetenabp:threetenabp:" +
-      Versions.threetenabp
+    /**
+     * https://github.com/JakeWharton/ThreeTenABP/ */
+    const val threetenabp: String = "com.jakewharton.threetenabp:threetenabp:" +
+        Versions.threetenabp
 
-  /**
-   * https://github.com/JakeWharton/timber */
-  const val timber: String = "com.jakewharton.timber:timber:" + Versions.timber
+    /**
+     * https://github.com/JakeWharton/timber */
+    const val timber: String = "com.jakewharton.timber:timber:" + Versions.timber
 
-  /**
-   * http://github.com/square/leakcanary/ */
-  const val leakcanary_android_no_op: String =
-    "com.squareup.leakcanary:leakcanary-android-no-op:" + Versions.com_squareup_leakcanary
+    /**
+     * http://github.com/square/leakcanary/ */
+    const val leakcanary_android_no_op: String =
+        "com.squareup.leakcanary:leakcanary-android-no-op:" + Versions.com_squareup_leakcanary
 
-  /**
-   * http://github.com/square/leakcanary/ */
-  const val leakcanary_android: String = "com.squareup.leakcanary:leakcanary-android:" +
-      Versions.com_squareup_leakcanary
-
-  /**
-   * http://github.com/square/leakcanary/ */
-  const val leakcanary_support_fragment: String =
-    "com.squareup.leakcanary:leakcanary-support-fragment:" +
+    /**
+     * http://github.com/square/leakcanary/ */
+    const val leakcanary_android: String = "com.squareup.leakcanary:leakcanary-android:" +
         Versions.com_squareup_leakcanary
 
-  const val de_fayard_buildsrcversions_gradle_plugin: String =
-    "de.fayard.buildSrcVersions:de.fayard.buildSrcVersions.gradle.plugin:" +
-        Versions.de_fayard_buildsrcversions_gradle_plugin
+    /**
+     * http://github.com/square/leakcanary/ */
+    const val leakcanary_support_fragment: String =
+        "com.squareup.leakcanary:leakcanary-support-fragment:" +
+            Versions.com_squareup_leakcanary
 
-  /**
-   * http://mockk.io */
-  const val mockk: String = "io.mockk:mockk:" + Versions.mockk
+    const val de_fayard_buildsrcversions_gradle_plugin: String =
+        "de.fayard.buildSrcVersions:de.fayard.buildSrcVersions.gradle.plugin:" +
+            Versions.de_fayard_buildsrcversions_gradle_plugin
 
-  /**
-   * https://github.com/ReactiveX/RxAndroid */
-  const val rxandroid: String = "io.reactivex.rxjava2:rxandroid:" + Versions.rxandroid
+    /**
+     * http://mockk.io */
+    const val mockk: String = "io.mockk:mockk:" + Versions.mockk
 
-  /**
-   * https://github.com/ReactiveX/RxJava */
-  const val rxjava: String = "io.reactivex.rxjava2:rxjava:" + Versions.rxjava
+    /**
+     * https://github.com/ReactiveX/RxAndroid */
+    const val rxandroid: String = "io.reactivex.rxjava2:rxandroid:" + Versions.rxandroid
 
-  /**
-   * https://github.com/ReactiveX/RxKotlin */
-  const val rxkotlin: String = "io.reactivex.rxjava2:rxkotlin:" + Versions.rxkotlin
+    /**
+     * https://github.com/ReactiveX/RxJava */
+    const val rxjava: String = "io.reactivex.rxjava2:rxjava:" + Versions.rxjava
 
-  /**
-   * http://junit.org */
-  const val junit: String = "junit:junit:" + Versions.junit
+    /**
+     * https://github.com/ReactiveX/RxKotlin */
+    const val rxkotlin: String = "io.reactivex.rxjava2:rxkotlin:" + Versions.rxkotlin
 
-  const val org_gradle_kotlin_kotlin_dsl_gradle_plugin: String =
-    "org.gradle.kotlin.kotlin-dsl:org.gradle.kotlin.kotlin-dsl.gradle.plugin:" +
-        Versions.org_gradle_kotlin_kotlin_dsl_gradle_plugin
+    /**
+     * http://junit.org */
+    const val junit: String = "junit:junit:" + Versions.junit
 
-  /**
-   * https://kotlinlang.org/ */
-  const val kotlin_android_extensions: String =
-    "org.jetbrains.kotlin:kotlin-android-extensions:" + Versions.org_jetbrains_kotlin
+    const val org_gradle_kotlin_kotlin_dsl_gradle_plugin: String =
+        "org.gradle.kotlin.kotlin-dsl:org.gradle.kotlin.kotlin-dsl.gradle.plugin:" +
+            Versions.org_gradle_kotlin_kotlin_dsl_gradle_plugin
 
-  /**
-   * https://kotlinlang.org/ */
-  const val kotlin_annotation_processing_gradle: String =
-    "org.jetbrains.kotlin:kotlin-annotation-processing-gradle:" +
+    /**
+     * https://kotlinlang.org/ */
+    const val kotlin_android_extensions: String =
+        "org.jetbrains.kotlin:kotlin-android-extensions:" + Versions.org_jetbrains_kotlin
+
+    /**
+     * https://kotlinlang.org/ */
+    const val kotlin_annotation_processing_gradle: String =
+        "org.jetbrains.kotlin:kotlin-annotation-processing-gradle:" +
+            Versions.org_jetbrains_kotlin
+
+    /**
+     * https://kotlinlang.org/ */
+    const val kotlin_gradle_plugin: String = "org.jetbrains.kotlin:kotlin-gradle-plugin:" +
         Versions.org_jetbrains_kotlin
 
-  /**
-   * https://kotlinlang.org/ */
-  const val kotlin_gradle_plugin: String = "org.jetbrains.kotlin:kotlin-gradle-plugin:" +
-      Versions.org_jetbrains_kotlin
-
-  /**
-   * https://kotlinlang.org/ */
-  const val kotlin_reflect: String = "org.jetbrains.kotlin:kotlin-reflect:" +
-      Versions.org_jetbrains_kotlin
-
-  /**
-   * https://kotlinlang.org/ */
-  const val kotlin_sam_with_receiver: String = "org.jetbrains.kotlin:kotlin-sam-with-receiver:" +
-      Versions.org_jetbrains_kotlin
-
-  /**
-   * https://kotlinlang.org/ */
-  const val kotlin_scripting_compiler_embeddable: String =
-    "org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:" +
+    /**
+     * https://kotlinlang.org/ */
+    const val kotlin_reflect: String = "org.jetbrains.kotlin:kotlin-reflect:" +
         Versions.org_jetbrains_kotlin
 
-  /**
-   * https://kotlinlang.org/ */
-  const val kotlin_stdlib_jdk8: String = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:" +
-      Versions.org_jetbrains_kotlin
+    /**
+     * https://kotlinlang.org/ */
+    const val kotlin_sam_with_receiver: String = "org.jetbrains.kotlin:kotlin-sam-with-receiver:" +
+        Versions.org_jetbrains_kotlin
 
-  /**
-   * https://kotlinlang.org/ */
-  const val kotlin_test_junit: String = "org.jetbrains.kotlin:kotlin-test-junit:" +
-      Versions.org_jetbrains_kotlin
+    /**
+     * https://kotlinlang.org/ */
+    const val kotlin_scripting_compiler_embeddable: String =
+        "org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:" +
+            Versions.org_jetbrains_kotlin
+
+    /**
+     * https://kotlinlang.org/ */
+    const val kotlin_stdlib_jdk8: String = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:" +
+        Versions.org_jetbrains_kotlin
+
+    /**
+     * https://kotlinlang.org/ */
+    const val kotlin_test_junit: String = "org.jetbrains.kotlin:kotlin-test-junit:" +
+        Versions.org_jetbrains_kotlin
 }
