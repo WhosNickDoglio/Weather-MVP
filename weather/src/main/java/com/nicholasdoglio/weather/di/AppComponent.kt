@@ -25,8 +25,10 @@
 package com.nicholasdoglio.weather.di
 
 import android.app.Application
+import com.nicholasdoglio.weather.WeatherApp
 import dagger.BindsInstance
 import dagger.Component
+import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
@@ -39,9 +41,7 @@ import javax.inject.Singleton
         (AndroidSupportInjectionModule::class),
         (MainActivityBindingModule::class)]
 )
-interface AppComponent
-//     : AndroidInjector<WeatherApp>
-{
+interface AppComponent : AndroidInjector<WeatherApp> {
     @Component.Builder
     interface Builder {
         @BindsInstance
