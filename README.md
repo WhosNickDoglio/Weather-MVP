@@ -1,6 +1,11 @@
 # Weather-MVP
 
 
+# No longer actively being developed
+
+The project was initially planned to be used to explore different variations of the MVP architecture pattern, due to other projects and work getting in the way development has stalled completely. As of right now there are no plans for further development. 
+
+
 # License
 
 	MIT License
